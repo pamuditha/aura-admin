@@ -1,15 +1,18 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
+const mg = require("nodemailer-mailgun-transport")
 
-const APP_NAME = 'Aura Admin';
-const mailTransport = nodemailer.createTransport({
-    service: 'gmail',
+const APP_NAME = 'GDG LK Admin';
+
+const mailgunAuth = {
     auth: {
-        user: functions.config().someservice.email,
-        pass: functions.config().someservice.password
-    },
-});
+        api_key: functions.config().someservice.api_key,//"key-sample",
+        domain: functions.config().someservice.domain //"gdgsrilanka.org"
+    }
+}
+
+const mailTransport = nodemailer.createTransport(mg(mailgunAuth));
 
 exports.addMessage = functions.https.onCall((data) => {
     console.log(data)
@@ -178,7 +181,7 @@ async function sendWelcomeEmail(email, displayName, pass, communityEmail, commun
         <p>Welcome to ${communityName}. I hope you will enjoy our service.</p>
         <p>This email contains important account access information for your ${email} account.</p>
         <p>This is your temporary password: <b>${pass}</b></p>
-        <p>Kindly Login into Admin panel or Contact Admin</p>
+        <p>Kindly Login into <a href="https://admin.gdgsrilanka.org">Admin panel</a> or Contact Admin</p>
         <br>
         <p>If you have any questions, please contact ${communityEmail}</p>
         <br>

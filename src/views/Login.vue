@@ -2,13 +2,13 @@
   <v-container fuild class="pa-0 fill-height">
     <!-- Desktop -->
     <v-row align="center" justify="center" class="d-none d-sm-block" >
-      <v-col md="8" lg="10" offset-md="1" sm="12" class="py-5" style="max-width:1300px;margin-left:auto;margin-right:auto"> 
+      <v-col md="8" lg="10" offset-md="1" sm="12" class="py-5" style="max-width:1300px;margin-left:auto;margin-right:auto">
         <v-container fluid class="ma-0 pa-0 white elevation-1 mt-5">
           <v-row align="stretch" justify="center" class="ma-0 pa-0">
-            <v-col md="5" lg="5" sm="6" class="pa-5"> 
-              <h4 class="google-font primary--text mb-5">Aura Admin</h4>
+            <v-col md="5" lg="5" sm="6" class="pa-5">
+              <h4 class="google-font primary--text mb-5">GDG LK Admin</h4>
               <br>
-              <p class="google-font mt-5 mb-0 primary--text" style="font-size:200%">Managing Aura App</p>
+              <p class="google-font mt-5 mb-0 primary--text" style="font-size:200%">Managing GDG LK Web App</p>
               <p class="google-font mb-5 mt-0">Welcome, Please login to your account.</p>
               <br>
               <v-text-field class="ma-0 pa-0" label="Email" v-model="email" outlined></v-text-field>
@@ -19,7 +19,7 @@
               <a href="https://github.com/gdg-x/aura-admin" target="_blank" class="mr-3">Support</a>
               <a href="/about" target="_blank" class="mr-3" >About</a>
             </v-col>
-            <v-col md="7" lg="7" sm="6" class="grey lighten-4 pa-0"> 
+            <v-col md="7" lg="7" sm="6" class="grey lighten-4 pa-0">
               <v-img style="float:right" :src="require('@/assets/img/svg/login.svg')" width="70vh"></v-img>
             </v-col>
           </v-row>
@@ -78,7 +78,7 @@ export default {
       firebase.auth
         .signInWithEmailAndPassword(self.email, self.password)
         .then((user) => {
-          
+
         })
         .catch(e => {
           self.loading = false;

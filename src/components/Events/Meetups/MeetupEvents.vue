@@ -54,7 +54,7 @@
                     :loading="isLoading"
                     :items-per-page="5"
                     style="border:1px solid #e0e0e0;border-radius:5px;"
-                >   
+                >
                     <template v-slot:item.name="{ item }">
                         {{item.name | summary(12) }}
                     </template>
